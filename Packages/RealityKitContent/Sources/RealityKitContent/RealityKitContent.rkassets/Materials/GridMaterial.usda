@@ -14,7 +14,7 @@ def Xform "Root"
         token outputs:realitykit:vertex
         token outputs:surface
         float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (2222, 300.5)
-        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 89)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
         int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 749
 
         def Shader "DefaultSurfaceShader"
@@ -41,8 +41,8 @@ def Xform "Root"
             float inputs:roughness = 0.5
             token outputs:out
             float2 ui:nodegraph:node:pos = (1967, 300.5)
-            float2 ui:nodegraph:node:size = (208, 297)
-            int ui:nodegraph:node:stackingOrder = 870
+            float2 ui:nodegraph:node:size = (207.5, 307)
+            int ui:nodegraph:node:stackingOrder = 1365
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["Advanced"]
         }
 
@@ -51,7 +51,7 @@ def Xform "Root"
             uniform token info:id = "ND_texcoord_vector2"
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (94.14453, 35.29297)
-            float2 ui:nodegraph:node:size = (182, 43)
+            float2 ui:nodegraph:node:size = (180.5, 53)
             int ui:nodegraph:node:stackingOrder = 1358
         }
 
@@ -63,7 +63,7 @@ def Xform "Root"
             float2 inputs:in2.connect = </Root/GridMaterial/LineCounts.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (275.64453, 47.29297)
-            float2 ui:nodegraph:node:size = (61, 36)
+            float2 ui:nodegraph:node:size = (60, 36)
             int ui:nodegraph:node:stackingOrder = 1348
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:in2"]
         }
@@ -74,7 +74,7 @@ def Xform "Root"
             float2 inputs:in.connect = </Root/GridMaterial/Multiply.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (440.5, 49.5)
-            float2 ui:nodegraph:node:size = (155, 99)
+            float2 ui:nodegraph:node:size = (154.5, 109)
             int ui:nodegraph:node:stackingOrder = 1345
         }
 
@@ -87,21 +87,20 @@ def Xform "Root"
             color3f inputs:value.connect = None
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1537.5977, 363.07812)
-            float2 ui:nodegraph:node:size = (150, 43)
-            int ui:nodegraph:node:stackingOrder = 1353
+            float2 ui:nodegraph:node:size = (151, 53)
+            int ui:nodegraph:node:stackingOrder = 1367
         }
 
         def Shader "LineColor"
         {
             uniform token info:id = "ND_constant_color3"
-            color3f inputs:value = (0.55945957, 0.55945957, 0.55945957) (
-                colorSpace = "Input - Texture - sRGB - sRGB"
+            color3f inputs:value = (0.55945957, 0.051855993, 0.072543375) (
+                colorSpace = "srgb_displayp3"
             )
-            color3f inputs:value.connect = None
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1536.9844, 287.86328)
-            float2 ui:nodegraph:node:size = (146, 43)
-            int ui:nodegraph:node:stackingOrder = 1355
+            float2 ui:nodegraph:node:size = (151, 53)
+            int ui:nodegraph:node:stackingOrder = 1368
         }
 
         def Shader "LineWidths"
@@ -111,7 +110,7 @@ def Xform "Root"
             float inputs:in2 = 0.1
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (443.64453, 233.79297)
-            float2 ui:nodegraph:node:size = (151, 43)
+            float2 ui:nodegraph:node:size = (150, 53)
             int ui:nodegraph:node:stackingOrder = 1361
         }
 
@@ -122,7 +121,7 @@ def Xform "Root"
             float inputs:in2 = 12
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (94.14453, 138.29297)
-            float2 ui:nodegraph:node:size = (153, 43)
+            float2 ui:nodegraph:node:size = (151.5, 53)
             int ui:nodegraph:node:stackingOrder = 1359
         }
 
@@ -136,8 +135,8 @@ def Xform "Root"
             color3f inputs:outlow.connect = </Root/GridMaterial/LineColor.outputs:out>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1755.5, 300.5)
-            float2 ui:nodegraph:node:size = (95, 171)
-            int ui:nodegraph:node:stackingOrder = 1282
+            float2 ui:nodegraph:node:size = (94, 181)
+            int ui:nodegraph:node:stackingOrder = 1366
             string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:outlow"]
         }
 
@@ -148,7 +147,7 @@ def Xform "Root"
             float outputs:outx
             float outputs:outy
             float2 ui:nodegraph:node:pos = (1212.6445, 128.91797)
-            float2 ui:nodegraph:node:size = (116, 117)
+            float2 ui:nodegraph:node:size = (115, 127)
             int ui:nodegraph:node:stackingOrder = 1363
         }
 
@@ -160,7 +159,7 @@ def Xform "Root"
             float inputs:in3.connect = </Root/GridMaterial/Min.outputs:out>
             color3f outputs:out
             float2 ui:nodegraph:node:pos = (1578.1445, 128.91797)
-            float2 ui:nodegraph:node:size = (146, 54)
+            float2 ui:nodegraph:node:size = (145, 54)
             int ui:nodegraph:node:stackingOrder = 1348
         }
 
@@ -176,7 +175,7 @@ def Xform "Root"
             float2 inputs:outlow
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (990.64453, 128.91797)
-            float2 ui:nodegraph:node:size = (98, 207)
+            float2 ui:nodegraph:node:size = (98, 217)
             int ui:nodegraph:node:stackingOrder = 1364
         }
 
@@ -187,7 +186,7 @@ def Xform "Root"
             float2 inputs:in2.connect = </Root/GridMaterial/LineWidths.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (612.64453, 87.04297)
-            float2 ui:nodegraph:node:size = (63, 36)
+            float2 ui:nodegraph:node:size = (61.5, 36)
             int ui:nodegraph:node:stackingOrder = 1348
         }
 
@@ -197,7 +196,7 @@ def Xform "Root"
             float2 inputs:in.connect = </Root/GridMaterial/Subtract.outputs:out>
             float2 outputs:out
             float2 ui:nodegraph:node:pos = (765.64453, 87.04297)
-            float2 ui:nodegraph:node:size = (123, 43)
+            float2 ui:nodegraph:node:size = (121.5, 53)
             int ui:nodegraph:node:stackingOrder = 1348
         }
 
@@ -208,8 +207,28 @@ def Xform "Root"
             float inputs:in2.connect = </Root/GridMaterial/Separate2.outputs:outy>
             float outputs:out
             float2 ui:nodegraph:node:pos = (1388.1445, 128.91797)
-            float2 ui:nodegraph:node:size = (114, 36)
+            float2 ui:nodegraph:node:size = (113, 40)
             int ui:nodegraph:node:stackingOrder = 1363
+        }
+    }
+
+    def Material "Material"
+    {
+        prepend token outputs:mtlx:surface.connect = </Root/Material/PreviewSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (299.25, 99.5)
+        float2 ui:nodegraph:realitykit:subgraphOutputs:size = (181.5, 99)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 1
+
+        def Shader "PreviewSurface"
+        {
+            uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+            float inputs:metallic = 1
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (74.25, 99.5)
+            float2 ui:nodegraph:node:size = (148.5, 199)
+            int ui:nodegraph:node:stackingOrder = 2
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:diffuseColor"]
         }
     }
 }

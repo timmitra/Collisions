@@ -10,35 +10,70 @@ import RealityKit
 import RealityKitContent
 
 struct ContentView: View {
+  
+  @State var rotationA: Angle = .zero
+  @State var rotationB: Angle = .zero
+  @State var cubeA = Entity()
+  @State var cubeB = Entity()
+  
+  var body: some View {
+    
+    
+    
+    
+      RealityView { content in
+        
+        let floor = ModelEntity(mesh: .generatePlane(width: 50, depth: 50), materials: [OcclusionMaterial()])
+        floor.components[PhysicsBodyComponent.self] = .init(
+          massProperties: .default,
+          mode: .static
+        )
+        
+          if let scene = try? await Entity(named: "Scene",
+                                              in: realityKitContentBundle) {
+              content.add(scene)
+              print(scene)
+          }
+        content.add(floor)
+      } update: { content in
+          if let scene = content.entities.first {
+              Task {
+                  cubeA = scene.findEntity(named: "Sphere") ?? Entity()
+                  cubeA.components.set(InputTargetComponent())
+                  cubeA.generateCollisionShapes(recursive: false)
 
-    @State var enlarge = false
-
-    var body: some View {
-        VStack {
-            RealityView { content in
-                // Add the initial RealityKit content
-                if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
-                    content.add(scene)
-                }
-            } update: { content in
-                // Update the RealityKit content when SwiftUI state changes
-                if let scene = content.entities.first {
-                    let uniformScale: Float = enlarge ? 1.4 : 1.0
-                    scene.transform.scale = [uniformScale, uniformScale, uniformScale]
-                }
-            }
-            .gesture(TapGesture().targetedToAnyEntity().onEnded { _ in
-                enlarge.toggle()
-            })
-
-            VStack {
-                Toggle("Enlarge RealityView Content", isOn: $enlarge)
-                    .toggleStyle(.button)
-            }.padding().glassBackgroundEffect()
-        }
-    }
+                  cubeB = scene.findEntity(named: "Cube") ?? Entity()
+                  cubeB.components.set(InputTargetComponent())
+                  cubeB.generateCollisionShapes(recursive: false)
+              }
+          }
+      }
+      .gesture(
+          DragGesture()
+              .targetedToEntity(cubeA)
+              .onChanged { _ in
+                  rotationA.degrees += 5.0
+                  let m1 = Transform(pitch: Float(rotationA.radians)).matrix
+                  let m2 = Transform(yaw: Float(rotationA.radians)).matrix
+                  cubeA.transform.matrix = matrix_multiply(m1, m2)
+                  // Keep starting distance between models
+                  cubeA.position.x = -0.25
+              }
+      )
+      .gesture(
+          DragGesture()
+              .targetedToEntity(cubeB)
+              .onChanged { _ in
+                  rotationB.degrees += 5.0
+                  cubeB.transform = Transform(roll: Float(rotationB.radians))
+                  // Keep starting distance between models
+                  cubeB.position.x = 0.25
+              }
+      )
+  }
 }
 
+               
 #Preview(windowStyle: .volumetric) {
-    ContentView()
+  ContentView()
 }
